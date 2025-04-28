@@ -224,7 +224,7 @@ class Disk:
                 return 0, MODE_PICKLE, None, sqlite3.Binary(result)
             else:
                 filename, full_path = self.filename(key, value)
-                self._write(full_path, io.BytesIO(result), 'xb')
+                self._write(full_path, [result], 'xb')
                 return len(result), MODE_PICKLE, filename, None
 
     def _write(self, full_path, iterator, mode, encoding=None):
